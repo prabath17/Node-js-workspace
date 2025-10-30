@@ -4,7 +4,7 @@ const db = require('./config/db');
 const app = express();
 app.use(express.json());
 
-// 📘 GET all books
+//  GET all books
 app.get('/books', (req, res) => {
   const sql = 'SELECT * FROM books';
   db.query(sql, (err, results) => {
@@ -13,7 +13,7 @@ app.get('/books', (req, res) => {
   });
 });
 
-// ➕ POST add book
+//  POST add book
 app.post('/books', (req, res) => {
   const { title, author, year } = req.body;
   if (!title || !author || !year) {
@@ -27,7 +27,7 @@ app.post('/books', (req, res) => {
   });
 });
 
-// ✏️ PUT update book
+//  PUT update book
 app.put('/books/:id', (req, res) => {
   const { id } = req.params;
   const { title, author, year } = req.body;
@@ -40,7 +40,7 @@ app.put('/books/:id', (req, res) => {
   });
 });
 
-// ❌ DELETE book
+//  DELETE book
 app.delete('/books/:id', (req, res) => {
   const { id } = req.params;
   const sql = 'DELETE FROM books WHERE id=?';
@@ -52,3 +52,4 @@ app.delete('/books/:id', (req, res) => {
 });
 
 app.listen(3000, () => console.log('🚀 Server running on port 3000'));
+
