@@ -5,7 +5,7 @@ const db=sql.createConnection(
     {
         host:"localhost",
         user:"root",
-        password:"root",
+        password:"",
         database:"movieDB",
     }
 );
@@ -54,3 +54,4 @@ db.query(createTableQuery, (err) => {
   console.log(" All movie records inserted!");
   db.end();
 });
+
